@@ -40,6 +40,13 @@ function addListItem(task: Task) {
   })
   checkbox.type = 'checkbox';
   checkbox.checked = task.completed;
+  
+  //Tailwindcss styling created elements
+  item.classList.add('px-2')
+  label.classList.add('flex', 'items-center');
+  checkbox.classList.add('mr-2', 'form-checkbox', 'h-5', 'w-5', 'cursor-pointer');
+
+
   label.append(checkbox, task.title);
   item.append(label);
   list?.append(item);
