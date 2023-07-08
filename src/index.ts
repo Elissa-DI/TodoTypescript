@@ -28,9 +28,10 @@ form?.addEventListener('submit', e => {
 function addListItem(task: Task) {
   const item = document.createElement('li');
   const label = document.createElement('label');
-  const ckeckbox = document.createElement('input');
-  ckeckbox.type = 'checkbox';
-  label.append(ckeckbox, task.title);
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.checked = task.completed;
+  label.append(checkbox, task.title);
   item.append(label);
   list?.append(item);
 }
