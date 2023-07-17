@@ -7,29 +7,46 @@
   <title>TodoTs</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-<INTEGRITY_HASH>" crossorigin="anonymous" />
-  <style>
-    #list{
-      list-style: none;
-      padding: 0;
-    }
-  </style>
 </head>
 <body
   class="p-4"
 >
-  <ul id="list"></ul>
-  <form action="" id="new-task-form">
-    <input 
-      type="text"
-      id="new-task-title"
-      class="px-3 py-1 border border-gray-800 rounded"
-    >
-    <button 
-      type="submit"
-      class="h-8 w-8  rounded-full border border-gray-800 bg-red-600 hover:bg-red-900"
-    >
-      <i class="fas fa-plus"></i> 
-    </button>
-  </form>  
+<div>
+  <div>
+    <div>
+      <div class="flex flex-col justify-center items-center">
+        <h1 class="font-extrabold text-3xl text-blue-900">Weight Revamp</h1>
+        <form class="">
+          <div class="form-group">
+            <input id="lbsInput" type="number" class="border border-gray-800 rounded mt-9 px-5 py-2" placeholder="Enter Pounds...">
+          </div>
+        </form>
+      </div>
+      <div id="output" class="mt-8 md:ml-60 flex sm:flex-row flex-col">
+
+        <div class="card my-3 mx-5 bg-blue-400 px-3 py-3 rounded">
+          <div class="card-block ml-5">
+            <h4 class="font-semibold text-2xl">Grams:</h4>
+            <div id="gramsOutput"></div>
+          </div>
+        </div>
+
+        <div class="card my-3 mx-5 bg-blue-400 px-3 py-3 rounded">
+          <div class="card-block ml-5">
+            <h4 class="font-semibold text-2xl">Kilograms:</h4>
+            <div id="kgOutput"></div>
+          </div>
+        </div>
+
+        <div class="card my-3 mx-5 bg-blue-400 px-6 py-6 rounded">
+          <div class="card-block ml-5">
+            <h4 class="font-semibold text-2xl">Ounces:</h4>
+            <div id="ozOutput"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </body>
 </html>

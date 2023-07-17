@@ -1,68 +1,10 @@
-import { v4 as uuidv4 } from 'uuid';
-type Task = {
-  id: string,
-  title: string,
-  completed: boolean,
-  createdAt: Date
-}
+document.getElementById('output')!.style.visibility = 'hidden';
 
+document.getElementById('lbsInput')!.addEventListener('input', function(e) {
+  document.getElementById('output')!.style.visibility = 'visible';
+  let lbs = (e.target as HTMLInputElement).value;
 
-const list = document.querySelector<HTMLUListElement>('#list');
-const form = document.querySelector<HTMLFormElement>('#new-task-form');
-const input = document.querySelector<HTMLInputElement>('#new-task-title');
-
-const tasks: Task[] = loadTasks();
-tasks.forEach(addListItem)
-
-form?.addEventListener('submit', e => {
-  e.preventDefault();
-  if(input?.value == '' || input?.value == null) return
-
-    const newTask: Task = {
-      id: uuidv4(),
-      title: input.value,
-      completed: false,
-      createdAt: new Date(),
-    }
-    tasks.push(newTask)
-
-    addListItem(newTask);
-    input.value = ''
-})
-
-function addListItem(task: Task) {
-  const item = document.createElement('li');
-  const label = document.createElement('label');
-  const checkbox = document.createElement('input');
-  checkbox.addEventListener('change', () => {
-    task.completed = checkbox.checked;
-    saveTasks();
-  })
-  checkbox.type = 'checkbox';
-  checkbox.checked = task.completed;
-  
-  //Tailwindcss styling created elements
-  item.classList.add('px-2')
-  label.classList.add('flex', 'items-center');
-  checkbox.classList.add('mr-2', 'form-checkbox', 'h-5', 'w-5', 'cursor-pointer');
-
-
-  label.append(checkbox, task.title);
-  item.append(label);
-  list?.append(item);
-}
-
-function saveTasks(){
-  localStorage.setItem('TASKS', JSON.stringify(tasks));
-}
-
-function loadTasks(): Task[] {
-  const taskJSON = localStorage.getItem('TASKS');
-    if(taskJSON == null) return []
-    return JSON.parse(taskJSON);
-}
-
-
-
-
-
+  document.getElementById("gramsOutput")!.innerHTML = (lbs / 0.0022046).toString();
+  document.getElementById("kgOutput")!.innerHTML = (lbs / 2.2046).toString();
+  document.getElementById("ozOutput")!.innerHTML = (lbs * 16).toString();
+});
